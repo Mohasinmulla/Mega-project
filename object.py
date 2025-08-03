@@ -12,21 +12,35 @@ gray_blur = cv2.GaussianBlur(gray, (9, 9), 2)
 circles = cv2.HoughCircles(
     gray_blur,
     cv2.HOUGH_GRADIENT,
-    dp=1,              # Inverse ratio of resolution
-    minDist=20,        # Minimum distance between circle centers
-    param1=50,         # Canny edge upper threshold
-    param2=30,         # Accumulator threshold for circle detection
-    minRadius=5,       # Minimum circle radius in pixels
-    maxRadius=100      # Maximum circle radius in pixels
+    dp=1,
+    minDist=20,
+    param1=50,
+    param2=30,
+    minRadius=5,
+    maxRadius=100
 )
 
-# Draw circles
+# Draw circles and crosshair lines
 if circles is not None:
     circles = np.uint16(np.around(circles))
     for (x, y, r) in circles[0, :]:
-        cv2.circle(image, (x, y), r, (0, 255, 0), 2)
-        cv2.circle(image, (x, y), 2, (0, 0, 255), 3)  # Center point
+        # Draw circle outline
+        cv2.circle(image, (x, y), r, (0, 255, 0), 1)
+        # Draw center point
+        cv2.circle(image, (x, y), 2, (0, 0, 255), 1)
+        
+        # Compute extreme points
+        top = (x, y - r)
+        bottom = (x, y + r)
+        left = (x - r, y)
+        right = (x + r, y)
 
-cv2.imshow('Detected Circles', image)
+        # Draw crosshair lines
+        cv2.line(image, (x, y), top, (255, 0, 0), 1)
+        cv2.line(image, (x, y), bottom, (255, 0, 0), 1)
+        cv2.line(image, (x, y), left, (255, 0, 0), 1)
+        cv2.line(image, (x, y), right, (255, 0, 0), 1)
+
+cv2.imshow('Detected Circles with Lines', image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
