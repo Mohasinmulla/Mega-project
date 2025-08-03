@@ -7,7 +7,7 @@ if image is None:
     raise ValueError("Image not found!")
 
 # Calibration: 10 px = 0.1 mm → 1 px = 0.01 mm
-px_to_mm = 0.01
+px_to_mm = 0.2
 
 # Detect circles
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
