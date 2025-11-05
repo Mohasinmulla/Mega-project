@@ -1,5 +1,5 @@
 
-This repository focuses on automating the hardness testing process through image processing techniques. It provides tools to measure Brinell indentation diameters from images and compute HBW (Brinell Hardness) values. The project features both an automatic circle detection mode and a manual measurement mode.
+#### This repository focuses on automating the hardness testing process through image processing techniques. It provides tools to measure Brinell indentation diameters from images and compute HBW (Brinell Hardness) values. The project features both an automatic circle detection mode and a manual measurement mode.
 
 ## Contents
 - `Working code/Manual.py` — Interactive manual measurement: click two points (horizontal line) to measure diameter, choose test load, calculate HBW, show results on image and save output.
