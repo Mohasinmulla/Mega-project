@@ -13,9 +13,9 @@ This repository focuses on automating the hardness testing process through image
 - On-image display of measured diameter and HBW.
 - Saves result images with timestamp and HBW in filename.
 - Simple key-based selection of Brinell test parameters:
-    - Press `1` → 750 kg, ball 5 mm
-    - Press `2` → 3000 kg, ball 10 mm
-    - Press `3` → 1000 kg, ball 10 mm
+  - Press `1` → 750 kg, ball 5 mm
+  - Press `2` → 3000 kg, ball 10 mm
+  - Press `3` → 1000 kg, ball 10 mm
 
 ## Requirements
 - Python 3.8+ (tested)
@@ -31,8 +31,8 @@ pip install opencv-python numpy
 
 1. Open the project in VS Code (or run from terminal).
 2. Set image path and optional calibration parameters at top of each script:
-     - `IMAGE_PATH` / `image_path` — path to input image
-     - `pixel_per_mm` — set to `None` to run calibration in manual mode, or set a known value to measure directly
+   - `IMAGE_PATH` / `image_path` — path to input image
+   - `pixel_per_mm` — set to `None` to run calibration in manual mode, or set a known value to measure directly
 3. Run either script:
 ```bash
 python "Working code/Manual.py"
@@ -61,9 +61,9 @@ Notes:
 ## Troubleshooting
 - Image not loading? Verify `IMAGE_PATH` is correct.
 - No circle detected in auto mode? Try:
-    - Adjust contrast/lighting or pre-process the image.
-    - Tweak Hough/contour parameters in `Autocircle.py`.
-    - Use `Manual.py` to measure manually.
+  - Adjust contrast/lighting or pre-process the image.
+  - Tweak Hough/contour parameters in `Autocircle.py`.
+  - Use `Manual.py` to measure manually.
 - Text not visible on image? Text color is black `(0,0,0)` or green for highlighted fields—adjust colors in code if needed.
 
 ## Contributing
